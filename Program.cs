@@ -1,19 +1,21 @@
 ﻿using System;
 
+using DataStructures.Structures;
+
 namespace DataStructures
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Structures.ClassicArray<int> arr = new Structures.ClassicArray<int>();
+            ClassicSet<int> set = new ClassicSet<int>();
 
-            arr.Add(0);
-            arr.Add(1);
-            
-            arr.Insert(5, 2);
+            set.Add(0);
+            set.Add(5);
+            set.Add(0);
+            set.Add(3);
 
-            arr.Print();
-        }
+            set.Print();
+        }   
     }
 }
