@@ -8,7 +8,6 @@ namespace DataStructures.Structures
         
         T[] arr = new T[0];
        
-
         public void Add(T value)
         {
             if(value != null)
