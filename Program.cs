@@ -10,12 +10,12 @@ namespace DataStructures
         {
             ClassicSet<int> set = new ClassicSet<int>();
 
-            set.Add(0);
-            set.Add(5);
-            set.Add(0);
-            set.Add(3);
+            for(short x = 0; x < 200; x++)
+            {
+                set.Add(x);
+            }
 
-            set.Print();
+            Console.WriteLine($"Index: {set.GetIndex(199)}");
         }   
     }
 }

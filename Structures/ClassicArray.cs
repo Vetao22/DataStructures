@@ -1,7 +1,8 @@
 using System;
+
 namespace DataStructures.Structures
 {
-    public class ClassicArray<T>
+    public class ClassicArray<T> where T: IComparable<T>
     {
         T[] arr = new T[0];
        
@@ -56,7 +57,7 @@ namespace DataStructures.Structures
 
         public short GetIndex(T value)
         {
-            return LinearSearch(value);
+            return BinarySearch(value);
         }
 
         public void Remove(T valueToRemove)
@@ -93,6 +94,30 @@ namespace DataStructures.Structures
             return -1;
         }
     
+        short BinarySearch(T value)
+        {
+            short index = -1, checkIndex, lowerBound = 0, upperBound = (short)(arr.Length - 1);
+
+            while(lowerBound <= upperBound)
+            {
+                checkIndex = (short)Math.Abs((upperBound + lowerBound) / 2);
+                
+                if(arr[checkIndex].Equals(value))
+                {
+                    index = checkIndex;
+                    return index;
+                }
+                if(value.CompareTo(arr[checkIndex]) > 0)
+                {
+                    lowerBound = (short)(checkIndex + 1);
+                }
+                else
+                {
+                    upperBound = (short)(checkIndex - 1);
+                }
+            }
+            return index;
+        }
         public void Print()
         {
             for(short x = 0; x < arr.Length; x++)
