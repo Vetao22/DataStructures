@@ -118,6 +118,31 @@ namespace DataStructures.Structures
             }
             return index;
         }
+
+        public void BubbleSort()
+        {
+            short unsortedIndex = (short)(arr.Length - 1);
+            bool sorted = false;
+
+            while(!sorted)
+            {
+                sorted = true;
+
+                for(short x = 0; x < unsortedIndex; x++)
+                {
+                    if(arr[x].CompareTo(arr[x + 1]) > 0)
+                    {
+                        T temp = arr[x];
+                        arr[x] = arr[x + 1];
+                        arr[x + 1] = temp;
+
+                        sorted = false;
+
+                        unsortedIndex--;
+                    }
+                }
+            }
+        }
         public void Print()
         {
             for(short x = 0; x < arr.Length; x++)

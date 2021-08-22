@@ -8,14 +8,17 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            ClassicSet<int> set = new ClassicSet<int>();
+            ClassicArray<int> arr = new ClassicArray<int>();
 
-            for(short x = 0; x < 200; x++)
-            {
-                set.Add(x);
-            }
+            arr.Add(15);
+            arr.Add(7);
+            arr.Add(30);
+            arr.Add(2);
+            arr.Add(100);
 
-            Console.WriteLine($"Index: {set.GetIndex(199)}");
+            arr.BubbleSort();
+
+            arr.Print();
         }   
     }
 }
