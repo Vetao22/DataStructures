@@ -10,13 +10,14 @@ namespace DataStructures
         {
             ClassicArray<int> arr = new ClassicArray<int>();
 
-            arr.Add(15);
-            arr.Add(7);
-            arr.Add(30);
-            arr.Add(2);
-            arr.Add(100);
+            Random rnd = new Random();
 
-            arr.BubbleSort();
+            for(short x = 0; x < 100; x++)
+            {
+                arr.Add(rnd.Next(500));
+            }
+
+            arr.InsertionSort();
 
             arr.Print();
         }   

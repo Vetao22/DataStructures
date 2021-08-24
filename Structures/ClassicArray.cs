@@ -143,6 +143,52 @@ namespace DataStructures.Structures
                 }
             }
         }
+        
+        public void SelectionSort()
+        {
+            for(short x = 0; x < arr.Length - 1; x++)
+            {
+                short lowestNumberIndex = x;
+
+                for(short y = (short)(x + 1); y < arr.Length; y++)
+                {
+                    if(arr[y].CompareTo(arr[lowestNumberIndex]) < 0)
+                    {
+                        lowestNumberIndex = y;
+                    }
+                }
+
+                if(lowestNumberIndex != x)
+                {
+                    T temp = arr[x];
+                    arr[x] = arr[lowestNumberIndex];
+                    arr[lowestNumberIndex] = temp;
+                }
+            }
+        }
+
+        public void InsertionSort()
+        {
+            for(short index = 1; index < arr.Length; index++)
+            {
+                T temp = arr[index];
+                short checkIndex = (short)(index - 1);
+
+                while(checkIndex >= 0)
+                {
+                    if(arr[checkIndex].CompareTo(temp) > 0)
+                    {
+                        arr[checkIndex + 1] = arr[checkIndex];
+                        checkIndex--;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    arr[checkIndex + 1] = temp;
+                }
+            }
+        }
         public void Print()
         {
             for(short x = 0; x < arr.Length; x++)
