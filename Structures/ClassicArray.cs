@@ -189,6 +189,7 @@ namespace DataStructures.Structures
                 }
             }
         }
+       
         public void Print()
         {
             for(short x = 0; x < arr.Length; x++)

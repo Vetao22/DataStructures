@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.Collections;
+using System;
+using System.Collections.Generic;
 
 using DataStructures.Structures;
 
@@ -8,18 +10,13 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            ClassicArray<int> arr = new ClassicArray<int>();
+            ClassicHashTable hashTable = new ClassicHashTable();
 
-            Random rnd = new Random();
+            hashTable.Add("teste","01");
+            hashTable.Add("teste", "02");
+            hashTable.Add("everton", "123456");
 
-            for(short x = 0; x < 100; x++)
-            {
-                arr.Add(rnd.Next(500));
-            }
-
-            arr.InsertionSort();
-
-            arr.Print();
-        }   
+            hashTable.Print();
+        }  
     }
 }
