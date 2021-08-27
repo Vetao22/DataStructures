@@ -1,6 +1,6 @@
 namespace DataStructures.Structures
 {
-    public class Queue<T>
+    public class ClassicQueue<T>
     {
           T[] arr = new T[0];
 
@@ -15,14 +15,16 @@ namespace DataStructures.Structures
                     tempArr[x] = arr[x];
                 }
                 tempArr[tempArr.Length - 1] = value;
+                arr = tempArr;
             }
         }    
 
         public T Dequeue()
         {
+            T value = default;
             if(arr.Length > 0)
             {
-                T value = arr[0];
+                value = arr[0];
 
                 T[] tempArr = new T[arr.Length - 1];
 
@@ -30,11 +32,10 @@ namespace DataStructures.Structures
                 {
                     tempArr[x - 1] = arr[x];
                 }
-
-                return value;
+                arr = tempArr;
             }
 
-            return default;
+            return value != null ? value: default;
         } 
 
         public T Read()

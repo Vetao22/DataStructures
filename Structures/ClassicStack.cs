@@ -19,25 +19,26 @@ namespace DataStructures.Structures
                     tempArr[x] = arr[x];
                 }
                 tempArr[tempArr.Length - 1] = value;
+                arr = tempArr;
             }
         }    
 
         public T Pop()
         {
+            T value = default;
             if(arr.Length > 0)
             {
                 T[] tempArr = new T[arr.Length - 1];
 
                 for(short x = 0; x < tempArr.Length; x++)
                 {
-                    T value = arr[x];
+                    value = arr[x];
                     tempArr[x] = arr[x];
-                    
-                    return value;
                 }
+                arr = tempArr;
             }
 
-            return default;
+            return value != null ? value: default;
         } 
 
         public T Read()

@@ -10,13 +10,16 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            ClassicHashTable hashTable = new ClassicHashTable();
+            ClassicQueue<int> stack = new ClassicQueue<int>();
+            
+            for(int x = 0;x < 10; x++)
+            {
+                stack.Enqueue(x);
+            }
 
-            hashTable.Add("teste","01");
-            hashTable.Add("teste", "02");
-            hashTable.Add("everton", "123456");
+            stack.Dequeue();
 
-            hashTable.Print();
+            Console.WriteLine(stack.Read());
         }  
     }
 }
