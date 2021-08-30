@@ -6,7 +6,10 @@ namespace DataStructures.Structures
     {
         T[] arr = new T[0];
        
-
+        public short Length
+        {
+            get{ return (short)arr.Length; }
+        }
         public void Add(T value)
         {
             if(value != null)
@@ -190,6 +193,60 @@ namespace DataStructures.Structures
             }
         }
        
+        short Partition(short leftPointer, short rightPointer)
+        {
+            short pivotIndex = rightPointer;
+            T pivot = arr[pivotIndex];
+            rightPointer--;
+
+            while(true)
+            {            
+                while(arr[leftPointer].CompareTo(pivot) < 0)
+                {
+                    leftPointer++;
+                }
+
+                while(arr[rightPointer].CompareTo(pivot) > 0)
+                {
+                    rightPointer--;
+                }               
+
+                if(leftPointer >= rightPointer)
+                {
+                    break;
+                }
+                else
+                {
+                    T temp = arr[rightPointer];
+                    arr[rightPointer] = arr[leftPointer];
+                    arr[leftPointer] = temp;
+
+                    leftPointer++;
+                }                
+            }
+
+            arr[pivotIndex] = arr[leftPointer];
+            arr[leftPointer] = pivot;        
+
+            return leftPointer;
+        }
+        
+        public void QuickSort(short leftIndex, short rightIndex)
+        {
+            short pivotIndex;
+
+            if(rightIndex - leftIndex <= 0)
+            {
+                return;
+            }
+
+            pivotIndex = Partition(leftIndex, rightIndex);
+
+            QuickSort(leftIndex, (short)(pivotIndex - 1));
+
+            QuickSort((short)(pivotIndex + 1), rightIndex);
+        }
+        
         public void Print()
         {
             for(short x = 0; x < arr.Length; x++)

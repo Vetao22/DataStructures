@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 using DataStructures.Structures;
@@ -10,16 +11,17 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            ClassicQueue<int> stack = new ClassicQueue<int>();
-            
-            for(int x = 0;x < 10; x++)
+            ClassicArray<int> arr = new ClassicArray<int>();
+            Random rnd = new Random();
+
+            for(short x = 0; x < 10; x++)
             {
-                stack.Enqueue(x);
+                arr.Add(rnd.Next(40));
             }
 
-            stack.Dequeue();
+            arr.QuickSort(0, (short)(arr.Length - 1));
 
-            Console.WriteLine(stack.Read());
-        }  
+            arr.Print();
+        } 
     }
 }
