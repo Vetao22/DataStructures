@@ -247,6 +247,29 @@ namespace DataStructures.Structures
             QuickSort((short)(pivotIndex + 1), rightIndex);
         }
         
+
+        public T QuickSelect(short kthLowestValue, short leftIndex, short rightIndex)
+        {
+            if(rightIndex - leftIndex < 0)
+            {
+                return arr[leftIndex];
+            }
+
+            short pivotIndex = Partition(leftIndex, rightIndex);
+
+            if(kthLowestValue < pivotIndex)
+            {
+                return QuickSelect(kthLowestValue, leftIndex, (short)(pivotIndex - 1));
+            }
+            else if(kthLowestValue > pivotIndex)
+            {
+                return QuickSelect(kthLowestValue, (short)(pivotIndex + 1), rightIndex);
+            }
+            else
+            {
+                return arr[pivotIndex];
+            }    
+        }
         public void Print()
         {
             for(short x = 0; x < arr.Length; x++)

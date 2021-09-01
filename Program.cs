@@ -11,17 +11,13 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            ClassicArray<int> arr = new ClassicArray<int>();
-            Random rnd = new Random();
+            ClassicLinkedList<int> list = new ClassicLinkedList<int>();
+            list.InsertAtIndex(0, 0);
+            list.InsertAtIndex(1, 1);
+            list.InsertAtIndex(2, 2);
+            list.InsertAtIndex(3, 3);
 
-            for(short x = 0; x < 10; x++)
-            {
-                arr.Add(rnd.Next(40));
-            }
-
-            arr.QuickSort(0, (short)(arr.Length - 1));
-
-            arr.Print();
+            list.Print();
         } 
     }
 }
