@@ -11,13 +11,12 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            ClassicLinkedList<int> list = new ClassicLinkedList<int>();
-            list.InsertAtIndex(0, 0);
-            list.InsertAtIndex(1, 1);
-            list.InsertAtIndex(2, 2);
-            list.InsertAtIndex(3, 3);
+            ClassicTreeNode<int> root = new ClassicTreeNode<int>(50);
 
-            list.Print();
+            ClassicBinarySearchTree<int> tree = new ClassicBinarySearchTree<int>(root);
+            tree.Insert(30, tree.Root);
+            tree.Insert(70, tree.Root);
+            tree.Insert(25, tree.Root);
         } 
     }
 }
