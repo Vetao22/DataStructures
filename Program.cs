@@ -11,12 +11,18 @@ namespace DataStructures
     {
         static void Main(string[] args)
         {
-            ClassicTreeNode<int> root = new ClassicTreeNode<int>(50);
+            ClassicHeap<int> heap = new ClassicHeap<int>();
 
-            ClassicBinarySearchTree<int> tree = new ClassicBinarySearchTree<int>(root);
-            tree.Insert(30, tree.Root);
-            tree.Insert(70, tree.Root);
-            tree.Insert(25, tree.Root);
+            heap.Insert(1);
+            heap.Insert(4);
+            heap.Insert(2);
+            heap.Insert(6);
+
+            heap.Delete();
+            heap.Delete();
+
+            heap.Print();
         } 
+      
     }
 }

@@ -6,10 +6,21 @@ namespace DataStructures.Structures
     {
         T[] arr = new T[0];
        
+        public T First
+        {
+            get{ return arr[0]; }
+        }
+
+        public T Last
+        {
+            get{ return arr[Length - 1]; }
+        }
+        
         public short Length
         {
             get{ return (short)arr.Length; }
         }
+        
         public void Add(T value)
         {
             if(value != null)
@@ -46,6 +57,32 @@ namespace DataStructures.Structures
             }
         }
         
+        public void SetValue(short index, T value)
+        {
+            if(index < 0 || index > Length - 1)
+            {
+                return;
+            }
+
+            arr[index] = value;
+        }
+        public void SwapIndexes(short index, short index2)
+        {
+            if(index < 0 || index > Length - 1)
+            {
+                return;
+            }
+
+            if(index2 < 0 || index2 > Length - 1)
+            {
+                return;
+            }
+
+            T temp = arr[index];
+            arr[index] = arr[index2];
+            arr[index2] = temp;
+        }
+
         public T GetValue(short index)
         {
             T value = default(T);
@@ -63,9 +100,10 @@ namespace DataStructures.Structures
             return BinarySearch(value);
         }
 
-        public void Remove(T valueToRemove)
+        public T Remove(T valueToRemove)
         {
             short index = LinearSearch(valueToRemove);
+            T deleted = default;
 
             if(index != -1)
             {
@@ -79,12 +117,47 @@ namespace DataStructures.Structures
                         temp[addIndex] = arr[x];
                         addIndex++;
                     }
+                    else
+                    {
+                        deleted = arr[x];
+                    }
                 }
 
                 arr = temp;
             }
+
+            return deleted;
         }
 
+        public T RemoveAtIndex(short index)
+        {
+            if(index < 0 || index > Length - 1)
+            {
+                return default;
+            }
+
+            T deleted = default;
+            T[] tempArr = new T[Length - 1];
+            short newIndex = 0;
+
+            for(short x = 0; x < Length; x++)
+            {
+                if(x != index)
+                {
+                    tempArr[newIndex] = arr[x];
+                    newIndex++;
+                }
+                else
+                {
+                    deleted = arr[x];
+                }
+            }
+
+            arr = tempArr;
+
+            return deleted;
+        }
+        
         short LinearSearch(T value)
         {
             for(short x = 0; x < arr.Length; x++)
@@ -270,6 +343,7 @@ namespace DataStructures.Structures
                 return arr[pivotIndex];
             }    
         }
+  
         public void Print()
         {
             for(short x = 0; x < arr.Length; x++)
